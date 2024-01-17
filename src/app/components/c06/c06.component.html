@@ -1,0 +1,65 @@
+<div>Una cadena de caracteres interpolada: {{ unaCadenaDeCaracteres }}</div>
+<div>Un número interpolado: {{ unNumero }}</div>
+<div>
+  Un objeto interpolado:
+  <ul>
+    <li>Nombre: {{ unObjeto.nombre }}</li>
+    <li>Apellido: {{ unObjeto.apellido }}</li>
+    <li>Ciudad: {{ unObjeto.ciudad }}</li>
+  </ul>
+</div>
+<div class="container text-center">
+  <button class="btn btn-primary" (click)="unClic()">
+    {{ textoDelBoton }}
+  </button>
+  <p *ngIf="true">Este elemento se muestra</p>
+  <p *ngIf="false">Este elemento no se muestra</p>
+  <p class="alert alert-primary">
+    El botón ha sido clicado una cantidad
+    <span
+      *ngIf="numeroDeClic % 2 == 0; then siMiIfEsVerdad; else elseDeMiIf"
+    ></span>
+    de veces
+  </p>
+  <ng-template #siMiIfEsVerdad>
+    <span class="alert alert-danger">par</span>
+  </ng-template>
+  <ng-template #elseDeMiIf>
+    <span class="alert alert-warning">impar</span>
+  </ng-template>
+
+  <div
+    *ngFor="
+      let unDeportista of deportistas;
+      index as i;
+      first as f;
+      last as l;
+      odd as o;
+      even as e
+    "
+  >
+    <b>{{ unDeportista }} : </b>
+    su índice : {{ i }}, es el primero de la lista : {{ f }}, es el último :
+    {{ l }}, es un número impar: {{ o }}, es un número par: {{ e }}
+  </div>
+  <br />
+  <div *ngFor="let unDeportista of deportistas">
+    <div [ngSwitch]="unDeportista">
+      <span *ngSwitchCase="'Rafa Nadal'"
+        ><strong>{{ unDeportista }}</strong></span
+      >
+      <span *ngSwitchDefault>{{ unDeportista }}</span>
+    </div>
+  </div>
+  <br />
+  <h4 [class]="miClaseFuente">Uso de ngClass</h4>
+  <br />
+  <button [class]="miClaseBoton" (click)="cambioDeClase()">
+    Cambio de clase
+  </button>
+  <br /><br />
+  <div [style.background-color]="'red'">Prueba</div>
+  <div [style.background-color]="unaFuncion()">XXXXX</div>
+  <div [style.background-color]="unEstilo">Con el atributo</div>
+  <div [style.color]="'red'" [style.font-weight]="'bold'">TAHITI</div>
+</div>
