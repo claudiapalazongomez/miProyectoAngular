@@ -9,6 +9,9 @@ import { C07Component } from './components/c07/c07.component';
 
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
+import { C0901Component } from './components/c0901/c0901.component';
+import { C0902Component } from './components/c0902/c0902.component';
+import { C09Component } from './components/c09/c09.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -18,6 +21,9 @@ registerLocaleData(es);
     MscComponent,
     C06Component,
     C07Component,
+    C0901Component,
+    C0902Component,
+    C09Component,
   ],
   imports: [BrowserModule],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
