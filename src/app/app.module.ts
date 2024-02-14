@@ -1,5 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MpcComponent } from './components/mpc/mpc.component';
@@ -12,6 +13,7 @@ import es from '@angular/common/locales/es';
 import { C0901Component } from './components/c0901/c0901.component';
 import { C0902Component } from './components/c0902/c0902.component';
 import { C09Component } from './components/c09/c09.component';
+import { C10Component } from './components/c10/c10.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -24,8 +26,9 @@ registerLocaleData(es);
     C0901Component,
     C0902Component,
     C09Component,
+    C10Component,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
 })
